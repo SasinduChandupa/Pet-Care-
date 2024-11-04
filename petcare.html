@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Dog - Pet Care</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .circle {
+            transition: background-color 0.3s;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .active {
+            background-color: blue;
+            /* Change to your preferred active color */
+        }
+
+        .inactive {
+            background-color: gray;
+            /* Change to your preferred inactive color */
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans antialiased bg-gradient-to-b from-white to-blue-200 min-h-screen">
+    <!-- Navbar -->
+    <header class="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
+        <div class="flex items-center">
+            <img src="Images/logo.jpg" alt="Love Dog Logo" class="w-8 h-8">
+            <span class="ml-2 font-bold text-lg text-black">Love Dog</span>
+        </div>
+
+        <nav id="nav-links" class="hidden lg:flex space-x-8">
+            <a href="#" class="text-gray-700 font-bold hover:text-black">Home</a>
+            <a href="#footer" class="text-gray-700 font-bold hover:text-black">About Us</a>
+            <a href="product.html" class="text-gray-700 font-bold hover:text-black">Products</a>
+            <a href="#" class="text-gray-700 font-bold hover:text-black">Contact Us</a>
+        </nav>
+
+        <div class="hidden lg:block">
+            <a href="#"
+                class="bg-yellow-400 text-white font-bold py-2 px-4 rounded-xl hover:bg-yellow-500 shadow-black shadow-xl">
+                CALL NOW
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="text-gray-700 text-2xl lg:hidden">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("hidden");
+            navLinks.classList.toggle("flex");
+        });
+    </script>
+
+
+    <!-- Text Section -->
+    <section class="flex flex-col md:flex-row items-center pl-8 py-16 ">
+        <div class="md:w-1/2">
+            <h1 class="text-6xl font-bold font-sans text-black leading-tight">LOVE YOUR <br> <span
+                    class="text-blue-500">PET</span>
+                MORE</h1>
+            <h2 class="text-2xl font-semibold text-black mt-4">HEALTHY PETS</h2>
+            <p class="text-gray-600 mt-4">Discover expert pet care tips, grooming services, and nutrition advice to keep
+                your furry friend happy and healthy. Your trusted source for all pet essentials, ensuring their
+                well-being every day.</p>
+            <a href="#" class="text-blue-500 underline mt-2 inline-block">Read more</a>
+            <br>
+
+            <button id="registerBtn" class="mt-2 text-blue-800 font-bold font-serif text-xl">REGISTER NOW</button>
+            <!-- Modal -->
+            <div id="registrationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+                    <h2 class="text-2xl font-bold mb-4">Registration Form</h2>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" class="mt-1 p-2 border border-gray-300 rounded w-full"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" class="mt-1 p-2 border border-gray-300 rounded w-full"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="block text-sm font-medium text-gray-700">Address</label>
+                            <input type="password" id="password" class="mt-1 p-2 border border-gray-300 rounded w-full"
+                                required>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="button" id="closeBtn" class="text-gray-600 hover:text-gray-900 mr-4">Cancel</button>
+                            <button type="submit" class="bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // Get modal and buttons
+                const modal = document.getElementById('registrationModal');
+                const registerBtn = document.getElementById('registerBtn');
+                const closeBtn = document.getElementById('closeBtn');
+
+                // Open modal
+                registerBtn.onclick = function () {
+                    modal.classList.remove('hidden');
+                }
+
+                // Close modal
+                closeBtn.onclick = function () {
+                    modal.classList.add('hidden');
+                }
+
+                // Close modal when clicking outside of it
+                window.onclick = function (event) {
+                    if (event.target === modal) {
+                        modal.classList.add('hidden');
+                    }
+                }
+            </script>
+            <style>
+                :root {
+                    --button-padding: 1em;
+                    --space-for-arrow: 2em;
+                }
+
+                button {
+                    position: relative;
+                    padding-block: .5em;
+                    padding-inline-start: var(--space-for-arrow);
+                    padding-inline-end: var(--button-padding);
+                    border: none;
+                    border-radius: .25em;
+                    background-color: transparent;
+                    cursor: pointer;
+                    transition: padding 250ms ease, background-color 250ms ease;
+                }   
+
+                button:hover {
+                    padding-inline-start: var(--button-padding);
+                    padding-inline-end: var(--space-for-arrow);
+                    background-color: rgb(125, 174, 194);
+                }
+
+                button:hover::before {
+                    inset-inline-start: calc(100% - 1.75em);
+                }
+            </style>
+        </div>
+        <div class="flex justify-end md:w-full mt-8 md:mt-0">
+            <img src="Images/dog & cat.png" alt="Dog and Cat" class="rounded-lg">
+        </div>
+    </section>
+
+    <!-- Circles -->
+    <div id="indicator" class="flex mb-8 justify-center">
+        <a href="petcare.html" class="text-gray-700 font-bold hover:text-black">
+            <div class="circle active" data-index="0"></div>
+        </a>
+        <a href="Product.html" class="text-gray-700 font-bold hover:text-black">
+            <div class="circle inactive" data-index="1"></div>
+        </a>
+    </div>
+
+    <hr class="border-t border-black my-4 m-8">
+
+    <!-- Footer -->
+    <footer class="px-8 py-4 border-gray-200 text-blue-900" id="footer">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <p class="mb-4 md:mb-0">World Pets Association</p>
+            <div class="flex space-x-4 mb-4 md:mb-0">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <hr class="border-t border-blue-600 my-4">
+        <div class="flex flex-col md:flex-row justify-between">
+            <div class="mb-4 md:mb-0 text-left md:text-left text-center">
+                <p class="text-lg"><i class="fa-solid fa-house px-2"></i>No 37/A, Green Garden, Moratuwa, Sri Lanka</p>
+                <p class="text-lg"><i class="fa-solid fa-phone px-2"></i>(+94) 71 956 1425</p>
+                <p class="text-lg"><i class="fa-solid fa-envelope px-2"></i>lovedogpetcare@gmail.com</p>
+            </div>
+
+            <div class="text-center">
+                <p class="text-lg"><i class="fa-solid fa-clock px-2"></i>Open Hours</p>
+                <p class="">Weekdays (4:30 PM - 9:30 PM)</p>
+                <p class="">Weekends (6:30 PM - 9:30 PM)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Dog - Pet Care</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /*-------------------*/
+        @import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+        .wrapper {
+            position: relative;
+            top: 10%;
+            left: 40%;
+            width: 300px;
+            height: 500px;
+            perspective: 900px;
+        }
+
+        .container {
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            transition: .5s all ease;
+            transform: rotateX(60deg) scale(0.7);
+            perspective: 900px;
+            box-shadow: 0px 20px 50px #555;
+            animation: entry 1s linear 1;
+        }
+
+        #c0 {
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #eba65b 30%, #d99267 100%);
+            z-index: 300;
+            box-shadow: 0px 20px 100px #555;
+        }
+
+        #c1 {
+            background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+            box-shadow: 0px 20px 100px #555;
+            left: 100%;
+            z-index: 0;
+        }
+
+        #c2 {
+            left: -100%;
+            z-index: 0;
+            background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+            box-shadow: 0px 20px 100px #555;
+        }
+
+        .container:hover {
+            cursor: pointer;
+            transform: rotate(0deg) scale(1) translateY(10px);
+            transition: .5s all ease;
+            z-index: 400;
+        }
+
+        .image {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(to top, #eba65b 30%, #d99267 100%);
+        }
+
+        #i1 {
+            background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+        }
+
+        #i2 {
+            background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+        }
+
+        span {
+            position: absolute;
+            top: 0%;
+            left: 55%;
+            border-radius: 100%;
+            background-color: #fff;
+            z-index: 10;
+        }
+
+        .sun {
+            position: absolute;
+            top: 50%;
+            height: 50%;
+            left: 0%;
+            width: 100%;
+        }
+
+        .sun1 {
+            width: 50px;
+            height: 50px;
+            box-shadow: 0px 0px 10px #fff;
+        }
+
+        .st4 {
+            fill: #f8c56f;
+            opacity: 1;
+        }
+
+        .st5,
+        .st7 {
+            fill: #fff;
+        }
+
+        #sh2 {
+            opacity: 0.5;
+        }
+
+        #sh3 {
+            opacity: 0.3;
+        }
+
+        .st6 {
+            fill: #59476f;
+        }
+
+        .st10 {
+            fill: #c5a7e5;
+            stroke: #222;
+        }
+
+        .st11 {
+            stroke: #212121;
+            opacity: 0.5;
+        }
+
+        #sh1 {
+            fill: #f8c56f;
+            opacity: 0.4;
+        }
+
+        .st0 {
+            fill: #a25a62;
+            stroke: none;
+            stroke-miterlimit: 10;
+        }
+
+        .st1 {
+            fill: none;
+            stroke: #a25a62;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+        }
+
+        .st2 {
+            fill: #cd775c;
+        }
+
+        .st3 {
+            fill: #fff;
+            opacity: 0.3;
+        }
+
+        .story {
+            position: absolute;
+            top: 45%;
+            left: 0%;
+            height: 55%;
+            width: 100%;
+            background: linear-gradient(to bottom, #eba65b 0%, #d99267 40%);
+            z-index: 30;
+        }
+
+        #s1 {
+            background: linear-gradient(to top, #5b62a2 0%, #7b88d1 100%);
+        }
+
+        #s2 {
+            background: linear-gradient(to top, #5b62a2 0%, #7b88d1 120%);
+        }
+
+        .info {
+            position: absolute;
+            top: 10%;
+        }
+
+        h3 {
+            text-align: center;
+            text-shadow: 0px 0px 10px #eee;
+            color: #eee;
+            letter-spacing: 2px;
+        }
+
+        h4 {
+            color: #111;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            color: #111;
+            position: fixed;
+            top: 0%;
+            left: 30%;
+            letter-spacing: 2px;
+        }
+
+        /* p {
+            font-size: 14px;
+            color: #fff;
+            padding: 0px 20px 20px 20px;
+            line-height: 150%;
+            text-align: center;
+            letter-spacing: 1px;
+        } */
+
+        .page {
+            position: absolute;
+            top: 80%;
+            width: 100%;
+            left: 0%;
+            height: 20%;
+            z-index: 30;
+        }
+
+        li {
+            position: absolute;
+            top: 50%;
+            list-style: none;
+            color: #111;
+        }
+
+        li:nth-child(1) {
+            left: 15%;
+            animation: simple1 1s linear infinite;
+        }
+
+        li:nth-child(2) {
+            right: 15%;
+            animation: simple 1s linear infinite;
+        }
+
+        @keyframes simple {
+            50% {
+                transform: translateX(10px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateX(10px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes simple1 {
+            50% {
+                transform: translateX(-10px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateX(-10px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes entry {
+            0% {
+                top: -20%;
+                opacity: 0.1;
+            }
+
+            100% {
+                top: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans antialiased bg-gradient-to-b from-white to-blue-200 min-h-screen">
+    <!-- Navbar -->
+    <header class="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
+        <div class="flex items-center">
+            <img src="Images/logo.jpg" alt="Love Dog Logo" class="w-8 h-8">
+            <p class="ml-2 font-bold text-lg text-black">Love Dog</p>
+        </div>
+
+        <nav id="nav-links" class="hidden lg:flex space-x-8">
+            <a href="petcare.html" class="text-gray-700 font-bold hover:text-black">Home</a>
+            <a href="#" class="text-gray-700 font-bold hover:text-black">About Us</a>
+            <a href="product.html" class="text-gray-700 font-bold hover:text-black">Products</a>
+            <a href="#" class="text-gray-700 font-bold hover:text-black">Contact Us</a>
+        </nav>
+
+        <div class="hidden lg:block">
+            <a href="#"
+                class="bg-yellow-400 text-white font-bold py-2 px-4 rounded-xl hover:bg-yellow-500 shadow-black shadow-xl">
+                CALL NOW
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="text-gray-700 text-2xl lg:hidden">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("hidden");
+            navLinks.classList.toggle("flex");
+        });
+    </script>
+
+    <!-- Tezt -->
+    <div class="text">
+        <p class="text-xl px-8 m-6 text-center text-l font-serif">Welcome to our Pet Care Product Interface, where we
+            offer a range of high-quality, homemade products designed with your furry friends in mind. Our selection
+            includes nutritious treats, organic grooming supplies, and eco-friendly toys, all crafted with love and
+            care. Explore our products and give your pets the best!</p>
+    </div>
+
+    <!-- -----Wrapper set was taken by website------ -->
+    <div class="wrapper">
+        <div class="container" id="c0">
+            <img src="Images/f1.png" class="">
+            <div class="story" id="s0">
+                <div class="info">
+                    <h3 class="text-2xl font-bold">Premium Dog food </h3>
+                    <p class="text-xl m-8 text-center text-l font-serif">"Fuel your dog's vitality with our
+                        nutrient-rich dog food — tailored for energy, health, happiness!"</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="c1">
+            <div class="image" id="i1">
+                <img src="Images/f2.png">
+            </div>
+            <div class="story" id="s1">
+                <div class="info">
+                    <h3 class="text-2xl font-bold"> Dog Harness</h3>
+                    <p class="text-xl m-8 text-center text-l font-serif">A dog harness provides comfort, control,
+                        and safety, making walks more enjoyable and secure for both you and your pet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="c2">
+            <div class="image" id="i2">
+                <img src="Images/f3.png">
+            </div>
+            <div class="story" id="s2">
+                <div class="info">
+                    <h3 class="text-2xl font-bold"> Dog Vitamins</h3>
+                    <p class="text-xl m-8 text-center text-l font-serif">Vitamins for dogs support their overall
+                        health, boost immune function, and promote strong bones, healthy skin, and a shiny coat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Circles -->
+    <div id="indicator" class="flex mb-8 justify-center">
+        <a href="petcare.html" class="text-gray-700 font-bold hover:text-black">
+            <div class="circle inactive" data-index="0"></div>
+        </a>
+        <a href="Product.html" class="text-gray-700 font-bold hover:text-black">
+            <div class="circle active" data-index="1"></div>
+        </a>
+    </div>
+    <style>
+        .circle {
+            transition: background-color 0.3s;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .active {
+            background-color: blue;
+            /* Change to your preferred active color */
+        }
+
+        .inactive {
+            background-color: gray;
+            /* Change to your preferred inactive color */
+        }
+    </style>
+
+    <hr class="border-t border-black my-4 m-8">
+
+    <!-- Footer -->
+    <footer class="px-8 py-4 border-gray-200 text-blue-900">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <p class="mb-4 md:mb-0">World Pets Association</p>
+            <div class="flex space-x-4 mb-4 md:mb-0">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <hr class="border-t border-blue-600 my-4">
+        <div class="flex flex-col md:flex-row justify-between">
+            <div class="mb-4 md:mb-0 text-left md:text-left text-center">
+                <p class="text-lg"><i class="fa-solid fa-house px-2"></i>No 37/A, Green Garden, Moratuwa, Sri Lanka</p>
+                <p class="text-lg"><i class="fa-solid fa-phone px-2"></i>(+94) 71 956 1425</p>
+                <p class="text-lg"><i class="fa-solid fa-envelope px-2"></i>lovedogpetcare@gmail.com</p>
+            </div>
+
+            <div class="text-center">
+                <p class="text-lg"><i class="fa-solid fa-clock px-2"></i>Open Hours</p>
+                <p class="">Weekdays (4:30 PM - 9:30 PM)</p>
+                <p class="">Weekends (6:30 PM - 9:30 PM)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
